@@ -7,3 +7,6 @@ edition = "2021"
 
 [dependencies]
 concat-string = "1.0.1"
+
+[dev-dependencies]
+parameterized = "1.1.0"
