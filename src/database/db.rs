@@ -76,15 +76,15 @@ impl Cache {
         value: String,
         secs: Duration,
     ) -> Result<(), &'static str> {
-        if let Ok(mut data) = self.data.write(){
-            if let Ok(mut expirations) = self.expirations.write(){
+        if let Ok(mut data) = self.data.write() {
+            if let Ok(mut expirations) = self.expirations.write() {
                 data.insert(key.clone(), value);
                 expirations.insert(key, Instant::now() + secs);
                 Ok(())
-            }else{
+            } else {
                 Err("Could bot acquire expirations write lock")
             }
-        }else{
+        } else {
             Err("Could bot acquire data write lock")
         }
     }
